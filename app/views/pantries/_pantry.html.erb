@@ -1,0 +1,19 @@
+<div class="row pantry">
+<h2 class="jumbotron">Items in This Pantry</h3>
+<% options_for_categories.each do |category| %>
+  <% items = @pantry.ingredients_by_category(category) %>
+  <% unless items.empty? %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item"><h3><%= category.capitalize %></h3></li>
+        <%= render items %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+<% if current_user == @pantry.user %>
+ <div class="col-xs-12 col-sm-12 col-md-12">
+  <%= link_to "Update Your Pantry", edit_pantry_path(@pantry) %>
+</div>
+<% end %>
+</div> 

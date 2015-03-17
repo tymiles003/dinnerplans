@@ -9,3 +9,7 @@
 #
 # two: {}
 #  column: value
+
+one:
+  email: test_user@test.com
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>

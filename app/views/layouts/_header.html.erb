@@ -1,12 +1,17 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Dinner Plans", '#', id: "logo" %>
+<div class="masthead clearfix">
+  <div class="inner">
+    <h3 class="masthead-brand">DinnerPlans</h3>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   '#' %></li>
-        <li><%= link_to "Help",   '#' %></li>
-        <li><%= link_to "Log in", new_user_session_path %></li>
+      <ul class="nav masthead-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "My Pantry", pantry_path(current_user.pantry) %></li>
+          <li><%= link_to "My Ingredients", "#" %></li>
+          <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
-</header>
+</div>

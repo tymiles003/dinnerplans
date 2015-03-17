@@ -1,2 +1,6 @@
-<p><%= ingredient.name %></p>
-<p><%= ingredient.amount %></p>
+<li class="list-group-item">
+  <%= ingredient.name %> 
+  <% if ingredient.amount %>
+    <em><%= ingredient.amount %> <%= ingredient.unit %></em>
+  <% end %>
+</li>

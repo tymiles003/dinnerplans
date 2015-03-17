@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'nested_form_fields'
 gem 'devise'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'

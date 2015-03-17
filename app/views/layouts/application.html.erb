@@ -6,13 +6,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<%= render 'layouts/header' %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<div class="container">
-  <%= yield %>
+<body class="<%= yield :body_class %>">
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <%= render 'layouts/header' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div class="inner-cover">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </div>
-
 </body>
 </html>

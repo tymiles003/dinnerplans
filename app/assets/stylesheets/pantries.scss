@@ -1,3 +1,15 @@
 // Place all the styles related to the Pantries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pantry {
+  color: black;
+}
+
+.pantry > h2 {
+  border-radius: 10px;
+}
+
+select {
+  color: black;
+}

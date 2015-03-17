@@ -1,8 +1,18 @@
-<%= form_for(@ingredient) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.label :amount %>
-  <%= f.number_field :amount %>
+<%= f.nested_fields_for :ingredients, wrapper_options: {class: 'form-inline'} do |ff| %>
+<div class="row">
+<div class="form-group">
+  <%= ff.label :name %>
+  <%= ff.text_field :name, class: "form-control" %>
+</div>
+ <div class="form-group">
+  <%= ff.label :category %>
+  <%= ff.select :category, options_for_categories, class: "form-control", :prompt => 'Select One' %>
+</div>
+<div class="form-group">
+  <%= ff.label :amount %>
+  <%= ff.number_field :amount, class: "form-control" %>
+  <%= ff.select :unit, options_for_units %>
+</div>
+  <%= ff.remove_nested_fields_link "Remove" %>
+</div>
 <% end %>

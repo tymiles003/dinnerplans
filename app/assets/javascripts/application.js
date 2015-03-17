@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require nested_form_fields
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
