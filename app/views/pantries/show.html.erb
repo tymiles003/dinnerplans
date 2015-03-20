@@ -2,7 +2,16 @@
 
 <div class="row">
 	<div class="col-xs-12 col-s-12 col-md-4 col-lg-4">
-		<p>Suggested/Makeable Recipes will be listed here.</p>
+		<% if @pantry.user == current_user %>
+		  <h3>Suggested/Makeable Recipes</h3>
+      <ul class="list-group">
+		    <%= render makeable_recipes %>
+	    </ul>
+	  <% else %>
+	    <h3>Suggest A Recipe</h3>
+	    <%= render 'recipes/form' %>
+	  <% end %>
+
 	</div>
 	<div class="col-xs-12 col-s-12 col-md-4 col-lg-8">
 		  		 	<%= render @pantry %>

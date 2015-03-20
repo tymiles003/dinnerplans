@@ -3,5 +3,5 @@ class Ingredient < ActiveRecord::Base
 	validates :category, presence: true
 
 
-	belongs_to :ingredients_list, polymorphic: true
+	belongs_to :ingredients_list
 end

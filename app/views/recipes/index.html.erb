@@ -1,0 +1,10 @@
+<% if @recipes %>
+  <h1>Your Recipes</h1>
+  <ul>
+   <% @recipes.each do |recipe| %>
+   <%= render recipe %>
+   <% end %>
+  </ul>
+<% end %>
+<%= link_to "Would You Like To Create A New Recipe?", new_recipe_path %>
+

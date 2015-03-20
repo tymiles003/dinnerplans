@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+
   get 'static_pages/home'
+  devise_for :users
   resources :pantries
+  resources :recipes
 
   root "static_pages#home"
 

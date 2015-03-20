@@ -1,0 +1,34 @@
+<%= form_for(@recipe) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Recipe Name" %> <br />
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <h4>Ingredients</h4>
+  </div>
+  <div class="form-group">
+  <%= f.nested_fields_for :items do |ff| %>
+    <%= ff.label :ingredients_id, "Ingredient" %>
+    <%= ff.collection_select :ingredients_id, @pantry.ingredients, :id, :name %>
+    <%= ff.label "Amount" %>
+    <%= ff.number_field :amount %>
+    <%= ff.select :unit, options_for_units %>
+    <%= ff.remove_nested_fields_link "Remove" %>
+  <% end %>
+  <%= f.add_nested_fields_link :items, 'Add Additional Ingredient' %>
+  </div>
+  <div class="form-group">
+  <h4>Steps</h4>
+  <%= f.nested_fields_for :steps do |ff| %>
+    <%= ff.label "Instruction for this step:" %>
+    <%= ff.text_field :instruction %>
+    <%= ff.remove_nested_fields_link "Remove" %>
+  <% end %>
+  <%= f.add_nested_fields_link :steps, 'Add Additional Step' %>
+  </div>
+
+  <%= f.submit class: "btn btn-default" %>
+<% end %>
+
+
+
