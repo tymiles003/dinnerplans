@@ -1,0 +1,21 @@
+<div class="row">
+
+	<div class="col-md-4">
+    <h2>Meal Planning</h2>
+    <% if @user.made_meals %>
+      <p> Your recent meals go here! </p>
+    <% else %>
+      <p>You don't appear to have made any meals yet...</p>
+    <% end %>
+    <h3>Make a Meal</h3>
+      form_for()
+	</div>
+	<div class="col-md-4">
+    <h2>Pantry Stats</h2>
+    <% if @user.pantry %>
+      <%= render 'pantry_stats', pantry: @user.pantry %>
+    <% else %>
+      <%= link_to "You don't have a pantry. Create one!", new_pantry_path %>
+    <% end %>
+  </div>
+</div>

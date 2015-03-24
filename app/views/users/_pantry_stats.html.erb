@@ -1,0 +1,12 @@
+<table class="table table-bordered">
+	<tr>
+		<th>Category</th>
+		<th>Ingredients</th>
+	</tr>
+  <% pantry.categories.each do |category| %>
+    <tr>
+  	  <td><%= category.capitalize %></td>
+  	  <td><%= pantry.ingredients_by_category(category).count %></td>
+    </tr>
+  <% end %>
+</table>

@@ -3,8 +3,9 @@
     <h3 class="masthead-brand">DinnerPlans</h3>
     <nav>
       <ul class="nav masthead-nav">
-        <li class="active"><a href="#">Home</a></li>
+        
         <% if user_signed_in? %>
+          <li><%= link_to "Home", current_user %></li>
           <% if current_user.pantry %>
             <li><%= link_to "My Pantry", pantry_path(current_user.pantry) %>
             </li>
