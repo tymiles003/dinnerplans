@@ -6,7 +6,7 @@
         
         <% if user_signed_in? %>
           <li><%= link_to "Home", current_user %></li>
-          <% if current_user.pantry %>
+          <% unless current_user.pantry.id.nil? %>
             <li><%= link_to "My Pantry", pantry_path(current_user.pantry) %>
             </li>
           <% end %>

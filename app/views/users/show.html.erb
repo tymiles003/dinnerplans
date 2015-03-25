@@ -2,20 +2,30 @@
 
 	<div class="col-md-4">
     <h2>Meal Planning</h2>
-    <% if @user.made_meals %>
-      <p> Your recent meals go here! </p>
+    <% if @user.made_meals.count > 0 %>
+      <%= render @user.made_meals %>
     <% else %>
-      <p>You don't appear to have made any meals yet...</p>
+      <p>You don't appear to have made any meals yet.</p>
     <% end %>
+  </div>
+  <div class="col-md-4">
     <h3>Make a Meal</h3>
-      form_for()
+    <% if @user.recipes.first %>
+      <%= form_for @made_meal do |f| %>
+        <%= f.label :recipe_id, "Select a Recipe to Make" %>
+        <%= f.collection_select :recipe_id, @user.recipes, :id, :name %><br />
+        <%= f.submit "Make this Recipe", class: "btn btn-default" %> 
+      <% end %>
+    <% else %>
+      <p>Create some recipes first!</p>
+    <% end %>
 	</div>
 	<div class="col-md-4">
     <h2>Pantry Stats</h2>
     <% if @user.pantry %>
       <%= render 'pantry_stats', pantry: @user.pantry %>
     <% else %>
-      <%= link_to "You don't have a pantry. Create one!", new_pantry_path %>
+      <%= link_to "You don't have a pantry. Create one!", new_pantry_path(@user) %>
     <% end %>
   </div>
 </div>

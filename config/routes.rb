@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  
+
   get 'users/show'
 
   get 'static_pages/home'
   devise_for :users
+  resources :made_meals, only: [:new, :create]
   resources :pantries
   resources :recipes
   resources :users, only: [:show]
