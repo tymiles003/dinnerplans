@@ -19,7 +19,7 @@
         <%= f.submit "Make this Recipe", class: "btn btn-default" %> 
       <% end %>
     <% else %>
-      <p>Create some recipes first!</p>
+      <%= link_to "Create some recipes first!", new_recipe_path %>
     <% end %>
 	</div>
 	<div class="col-md-4">
