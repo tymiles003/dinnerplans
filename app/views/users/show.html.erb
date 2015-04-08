@@ -1,9 +1,11 @@
 <div class="row">
 
 	<div class="col-md-4">
-    <h2>Meal Planning</h2>
-    <% if @user.made_meals.count > 0 %>
-      <%= render @user.made_meals %>
+    <h2>Most Recent Meals</h2>
+    <% if @user.made_meals.count %>
+      <ul class="list-group">
+        <%= render @made_meals %>
+      </ul>
     <% else %>
       <p>You don't appear to have made any meals yet.</p>
     <% end %>

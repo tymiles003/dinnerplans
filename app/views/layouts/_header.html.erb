@@ -9,9 +9,9 @@
           <% unless current_user.pantry.id.nil? %>
             <li><%= link_to "My Pantry", pantry_path(current_user.pantry) %>
             </li>
-          <% end %>
-          <% if %>
-            <li><%= link_to "My Recipes", recipes_path %></li>
+            <% if current_user.recipes %>
+              <li><%= link_to "My Recipes", recipes_path %></li>
+            <% end %>
           <% end %>
           <li>
             <%=link_to "Sign Out", destroy_user_session_path, method: :delete %>
