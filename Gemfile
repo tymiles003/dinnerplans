@@ -40,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do
 	gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test do
@@ -60,3 +61,4 @@ group :development, :test do
   gem 'spring'
 end
 
+ruby "2.0.0"
