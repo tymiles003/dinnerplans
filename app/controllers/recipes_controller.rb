@@ -2,10 +2,15 @@ class RecipesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
-    @recipe = current_user.recipes.build
-    3.times { @recipe.items.build }
-    3.times { @recipe.steps.build }
     @pantry = current_user.pantry
+    if @pantry.ingredients.count == 0
+      flash[:success] = "You must have ingredients in your pantry first!"
+      redirect_to @pantry
+    else
+      @recipe = current_user.recipes.build
+      @recipe.items.build
+      @recipe.steps.build
+    end
   end
 
   def create
